@@ -1,0 +1,13 @@
+server:
+  port: ${SERVER_PORT:8090}
+  servlet:
+    context-path: /auth
+clients:
+  tecrubesi-user:
+    clientId: "tecrubesi-user"
+    clientSecret: fDw7Mpkk5czHNuSRtmhGmAGL42CaxQB9
+    redirectUris: "${LOGIN_URL:http://localhost:8091/login/}"
+    username: "tecrubesi-user"
+    password: ${PASSWORD:123456}
+
+
