@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -14,18 +13,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Value("${clients.tecrubesi-user.username}")
+    @Value("${users[0].username}")
     private String username;
-    @Value("${clients.tecrubesi-user.password}")
+    @Value("${users[0].password}")
     private String password;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .cors()
-                .and()
-                    .requestMatchers()
-                        .antMatchers("/login", "/oauth/authorize")
+                .requestMatchers()
+                    .antMatchers("/login", "/oauth/authorize")
                 .and()
                     .authorizeRequests()
                         .anyRequest()

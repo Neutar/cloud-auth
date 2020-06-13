@@ -14,11 +14,11 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 @EnableAuthorizationServer
 @RequiredArgsConstructor
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-    @Value("${clients.tecrubesi-user.clientId}")
+    @Value("${clients[0].clientId}")
     private String ClientID;
-    @Value("${clients.tecrubesi-user.clientSecret}")
+    @Value("${clients[0].clientSecret}")
     private String ClientSecret;
-    @Value("${clients.tecrubesi-user.redirectUris}")
+    @Value("${clients[0].redirectUris}")
     private String RedirectUris;
     private final PasswordEncoder passwordEncoder;
 
