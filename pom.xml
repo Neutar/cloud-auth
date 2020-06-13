@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.neutar</groupId>
-	<artifactId>authorization-server-oauth2</artifactId>
+	<artifactId>cloud-auth</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>authorization-server-oauth2</name>
-	<description>Demo project for Spring Boot</description>
+	<name>cloud-auth</name>
+	<description>cloud-auth oauth2</description>
 
 	<properties>
 		<java.version>1.8</java.version>

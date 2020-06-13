@@ -1,0 +1,10 @@
+version: '3.2'
+services:
+  authorization-server-oauth2:
+    image: "authorization-server-oauth2:latest"
+    ports:
+      - "8090:8090"
+    environment:
+      - "DB_HOST=postgres_db"
+      - "KAFKA_HOST=kafka"
+      - "SERVER_PORT=8090"
