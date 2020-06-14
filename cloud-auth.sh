@@ -2,4 +2,4 @@
 
 mvn clean package
 
-docker build -f docker/Dockerfile . -t authorization-server-oauth2
+docker build -f docker/Dockerfile . -t cloud-auth
