@@ -3,13 +3,14 @@ server:
   servlet:
     context-path: /auth
 clients:
-  -
-    clientId: "tecrubesi-user"
-    clientSecret: fDw7Mpkk5czHNuSRtmhGmAGL42CaxQB9
-    redirectUris: "${LOGIN_URL:http://localhost:8091/login/}"
+  clientList:
+    -
+      clientId: "tecrubesi-ui"
+      clientSecret: fDw7Mpkk5czHNuSRtmhGmAGL42CaxQB9
+      redirectUris: "${REDIRECT_URI:http://192.168.0.9:8082/login/oauth2/code/}"
 users:
   -
-    username: "tecrubesi-user"
+    username: "utkan"
     password: ${PASSWORD:123456}
 
 
