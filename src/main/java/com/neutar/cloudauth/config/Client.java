@@ -1,4 +1,4 @@
-package com.neutar.authorizationserveroauth2.config;
+package com.neutar.cloudauth.config;
 
 import lombok.Data;
 
