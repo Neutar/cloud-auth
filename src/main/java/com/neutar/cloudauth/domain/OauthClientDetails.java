@@ -39,7 +39,7 @@ public class OauthClientDetails {
 
     private String additionalInformation;
 
-    private Integer autoapprove;
+    private String autoapprove;
 
     private String uuid;
 
