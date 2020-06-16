@@ -27,7 +27,7 @@ create table oauth_client_details(
     additional_information varchar(255),
     authorities varchar(255),
     authorized_grant_types varchar(255),
-    autoapprove VARCHAR(256),
+    autoapprove VARCHAR(255),
     client_id varchar(255),
     client_name varchar(255),
     client_secret varchar(255),
