@@ -1,5 +1,5 @@
 INSERT INTO "oauth_client_details" ("id", "access_token_validity", "additional_information", "authorities", "authorized_grant_types", "autoapprove", "client_id", "client_name", "client_secret", "created", "enabled", "refresh_token_validity", "resource_ids", "scope", "uuid", "web_server_redirect_uri") VALUES
-('5b3900bb-1184-462d-934f-fe3e6a5966b5',	36000,	NULL,	NULL,	'password,authorization_code,refresh_token,client_credentials',	'true',	'tecrubesi-ui',	NULL,	'$2a$10$DYrswQDQiyUzrXkCXfRxF.QOBSwlCcfFZDDw6ZYyzocuPH467mr12',	NULL,	NULL,	36000,	NULL,	'foo,read,write',	NULL,	'http://localhost:3000/code');
+('5b3900bb-1184-462d-934f-fe3e6a5966b5',	36000,	NULL,	NULL,	'password,authorization_code,refresh_token,client_credentials',	'true',	'tecrubesi-ui',	NULL,	'$2a$10$BM81Ms1hFTE7MW6dbr6VqObNhc3MTjkV8MBYXz0AxiP7SOr5tCVNG',	NULL,	NULL,	36000,	NULL,	'foo,read,write',	NULL,	'http://localhost:3000/code');
 
 INSERT INTO "neutar_user" ("id", "account_expired", "account_locked", "enabled", "password", "username") VALUES
-('4f175ec3-eac8-4d3b-8000-52748e8d5018',	'0',	'0',	'1',	'$2a$10$DYrswQDQiyUzrXkCXfRxF.QOBSwlCcfFZDDw6ZYyzocuPH467mr12',	'utkan');
+('4f175ec3-eac8-4d3b-8000-52748e8d5018',	'0',	'0',	'1',	'$2a$10$BM81Ms1hFTE7MW6dbr6VqObNhc3MTjkV8MBYXz0AxiP7SOr5tCVNG',	'utkan');
