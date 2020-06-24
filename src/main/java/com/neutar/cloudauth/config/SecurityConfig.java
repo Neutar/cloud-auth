@@ -20,6 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/login", "/oauth/authorize")
                 .and()
                     .authorizeRequests()
+                        .antMatchers("/register/**")
+                            .hasAnyAuthority("REGISTER_USER")
                         .anyRequest()
                             .authenticated()
                 .and()

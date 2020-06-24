@@ -3,7 +3,7 @@ package com.neutar.cloudauth.service;
 import com.neutar.cloudauth.domain.NeutarUser;
 import com.neutar.cloudauth.dto.CustomGrantedAuthority;
 import com.neutar.cloudauth.dto.CustomUserDetails;
-import com.neutar.cloudauth.repository.UserRepository;
+import com.neutar.cloudauth.repository.NeutarUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,12 +17,12 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final NeutarUserRepository neutarUserRepository;
 
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        NeutarUser neutarUser = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
+        NeutarUser neutarUser = neutarUserRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
         return CustomUserDetails.builder()
                 .username(neutarUser.getUsername())
                 .password(neutarUser.getPassword())

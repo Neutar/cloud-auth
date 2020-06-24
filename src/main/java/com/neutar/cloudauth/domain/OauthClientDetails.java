@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.UUID;
 
@@ -17,12 +18,14 @@ public class OauthClientDetails {
     @GeneratedValue
     private UUID id;
 
+    @NotBlank
     private String clientId;
 
     private String clientName;
 
     private String resourceIds;
 
+    @NotBlank
     private String clientSecret;
 
     private String scope;
@@ -45,6 +48,7 @@ public class OauthClientDetails {
 
     private Date created;
 
+    @NotBlank
     private Boolean enabled;
 
     @Transient

@@ -1,11 +1,13 @@
 
 create table neutar_user(
     id uuid PRIMARY KEY,
-    account_expired boolean,
-    account_locked boolean,
-    enabled boolean,
+    account_expired boolean not null,
+    account_locked boolean not null,
+    enabled boolean not null,
     password varchar(255),
-    username varchar(255) UNIQUE);
+    password_reset_token varchar(255),
+    password_reset_token_created_date timestamp,
+    username varchar(255) not null UNIQUE);
 
 create table neutar_user_authority(
     neutar_user_id uuid not null references neutar_user(id),
