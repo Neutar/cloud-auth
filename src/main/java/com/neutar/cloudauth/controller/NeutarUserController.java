@@ -8,6 +8,7 @@ import com.neutar.cloudauth.dto.ResetPasswordDto;
 import com.neutar.cloudauth.mapper.NeutarUserMapper;
 import com.neutar.cloudauth.service.NeutarUserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -26,22 +27,26 @@ public class NeutarUserController {
     }
 
     @PostMapping("/registerWithVerification")
+    @PreAuthorize("hasAuthority('REGISTER_USER')")
     public RegisterUserResponse registerUserWithVerification(@RequestBody RegisterUserWithVerificationDto registerUserWithVerificationDto){
         UUID passwordResetToken = neutarUserService.registerUserWithVerification(registerUserWithVerificationDto);
         return RegisterUserResponse.builder().passwordResetToken(passwordResetToken).build();
     }
 
     @PostMapping("/register")
+    @PreAuthorize("hasAuthority('REGISTER_USER')")
     public void registerUser(@RequestBody RegisterUserDto registerUserDto){
         neutarUserService.registerUser(registerUserDto);
     }
 
     @PutMapping("/resetPassword")
-    public void resetPassword(@RequestBody ResetPasswordDto resetPasswordDto, Principal principal){
-        neutarUserService.resetPassword(resetPasswordDto, principal.getName());
+    @PreAuthorize("hasAuthority('REGISTER_USER')")
+    public void resetPassword(@RequestBody ResetPasswordDto resetPasswordDto){
+        neutarUserService.resetPassword(resetPasswordDto);
     }
 
     @PutMapping("/resetPasswordToken")
+    @PreAuthorize("hasAuthority('REGISTER_USER')")
     public ResetPasswordTokenResponse resetPasswordToken(Principal principal){
         UUID resetPasswordToken = neutarUserService.resetPasswordToken(principal.getName());
         return ResetPasswordTokenResponse.builder().passwordResetToken(resetPasswordToken).build();

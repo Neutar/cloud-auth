@@ -36,8 +36,8 @@ public class NeutarUserService {
     }
 
     @Transactional
-    public void resetPassword(ResetPasswordDto resetPasswordDto, String username) {
-        NeutarUser neutarUser = neutarUserRepository.findByUsername(username).orElseThrow(() -> new NeutarUserNotFoundException(username));
+    public void resetPassword(ResetPasswordDto resetPasswordDto) {
+        NeutarUser neutarUser = neutarUserRepository.findByUsername(resetPasswordDto.getUsername()).orElseThrow(() -> new NeutarUserNotFoundException(resetPasswordDto.getUsername()));
         neutarUser.resetPassword(passwordEncoder.encode(resetPasswordDto.getPassword()), resetPasswordDto.getPasswordResetToken());
         neutarUserRepository.save(neutarUser);
     }

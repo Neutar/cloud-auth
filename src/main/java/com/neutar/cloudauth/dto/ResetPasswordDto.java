@@ -10,6 +10,9 @@ import java.util.UUID;
 @Builder
 public class ResetPasswordDto {
     @NotBlank
+    private String username;
+
+    @NotBlank
     private String password;
 
     @NotBlank
